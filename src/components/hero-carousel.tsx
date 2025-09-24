@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 interface CarouselSlide {
   id: number
@@ -95,10 +96,14 @@ export function HeroCarousel() {
           }`}
         >
           {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url('${slide.backgroundImage}')` }}
-          >
+          <div className="absolute inset-0">
+            <Image
+              src={slide.backgroundImage}
+              alt={slide.title}
+              fill
+              className="object-cover"
+              priority={index === 0} // preload only the first slide
+            />
             <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/70" />
           </div>
 
