@@ -1,33 +1,92 @@
-'use client'
-import Image from 'next/image'
+import { Navigation } from '@/components/navigation'
+import { Footer } from '@/components/footer'
+import { HeroCarousel } from '@/components/hero-carousel'
+import { SectionHeader } from '@/components/section-header'
+import { FeatureCard } from '@/components/feature-card'
+import { StatsGrid } from '@/components/stats-grid'
+import { CTASection } from '@/components/cta-section'
+import { BookOpen, Users, Award, Calendar } from 'lucide-react'
 
-export default function Home() {
+export default function HomePage() {
+  const features = [
+    {
+      icon: BookOpen,
+      title: 'Academic Excellence',
+      description:
+        'Rigorous curriculum designed to challenge and inspire students at every level.',
+    },
+    {
+      icon: Users,
+      title: 'Small Class Sizes',
+      description:
+        'Personalized attention with an average student-to-teacher ratio of 12:1.',
+    },
+    {
+      icon: Award,
+      title: 'Award-Winning Programs',
+      description:
+        'Recognized for excellence in STEM, arts, and athletics programs.',
+    },
+    {
+      icon: Calendar,
+      title: 'Extracurricular Activities',
+      description:
+        'Over 50 clubs and activities to help students explore their passions.',
+    },
+  ]
+
+  const stats = [
+    { number: '98%', label: 'College Acceptance Rate' },
+    { number: '850+', label: 'Students Enrolled' },
+    { number: '75+', label: 'Dedicated Faculty' },
+    { number: '25', label: 'Years of Excellence' },
+  ]
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-white text-black dark:bg-black dark:text-white transition-colors">
-      <h1 className="text-3xl font-bold mb-6">Dark Mode Demo</h1>
+    <div className="min-h-screen bg-background">
+      <Navigation />
 
-      <Image
-        className="dark:invert"
-        src="/next.svg"
-        alt="Next.js logo"
-        width={180}
-        height={38}
-        priority
+      {/* Hero Section */}
+      <HeroCarousel />
+
+      {/* Features Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            title="Why Choose Excellence Academy?"
+            subtitle="We provide a comprehensive educational experience that prepares students for success in college and beyond."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-muted">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <StatsGrid stats={stats} />
+        </div>
+      </section>
+
+      <CTASection
+        title="Ready to Join Our Community?"
+        subtitle="Discover how Excellence Academy can help your child reach their full potential."
+        primaryButtonText="Start Application"
+        primaryButtonHref="/admissions"
+        secondaryButtonText="Schedule Visit"
+        secondaryButtonHref="/contact"
       />
 
-      <p className="mt-4 text-lg">
-        This text changes color based on{' '}
-        <span className="font-semibold">dark mode</span>.
-      </p>
-
-      <button
-        onClick={() => {
-          document.documentElement.classList.toggle('dark')
-        }}
-        className="mt-6 px-4 py-2 rounded bg-gray-200 dark:bg-gray-800"
-      >
-        Toggle Dark Mode
-      </button>
+      <Footer />
     </div>
   )
 }
