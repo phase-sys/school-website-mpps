@@ -12,10 +12,10 @@ export function Navigation() {
   return (
     <nav className="bg-background border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-18">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center">
+            <Link href="/" className="flex items-center space-x-4">
+              <div className="relative w-12 h-12 rounded-full overflow-hidden flex items-center justify-center">
                 <Image
                   src="/logo.png"
                   alt="MPPS Logo"
@@ -24,13 +24,13 @@ export function Navigation() {
                   priority
                 />
               </div>
-              <span className="font-bold text-xl text-foreground">MPPS</span>
+              <span className="font-bold text-3xl text-foreground">MPPS</span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="ml-10 flex items-baseline space-x-10 text-lg">
               <div className="relative group">
                 <button className="text-muted-foreground hover:text-primary transition-colors flex items-center space-x-1 group">
                   <span>About</span>
