@@ -4,7 +4,7 @@ interface HeroSectionProps {
   className?: string
 }
 
-export function HeroSection({
+export function HeroText({
   title,
   subtitle,
   className = '',

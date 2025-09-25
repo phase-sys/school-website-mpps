@@ -1,41 +1,45 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { HeroCarousel } from "@/components/hero-carousel"
-import { SectionHeader } from "@/components/section-header"
-import { FeatureCard } from "@/components/feature-card"
-import { StatsGrid } from "@/components/stats-grid"
-import { CTASection } from "@/components/cta-section"
-import { BookOpen, Users, Award, Calendar } from "lucide-react"
+import { Navigation } from '@/components/scaffolding/Navigation'
+import { Footer } from '@/components/scaffolding/Footer'
+import { HeroCarousel } from '@/components/hero-carousel'
+import { SectionHeader } from '@/components/section-header'
+import { FeatureCard } from '@/components/feature-card'
+import { StatsGrid } from '@/components/stats-grid'
+import { CTASection } from '@/components/cta-section'
+import { BookOpen, Users, Award, Calendar } from 'lucide-react'
 
 export default function HomePage() {
   const features = [
     {
       icon: BookOpen,
-      title: "Academic Excellence",
-      description: "Rigorous curriculum designed to challenge and inspire students at every level.",
+      title: 'Academic Excellence',
+      description:
+        'Rigorous curriculum designed to challenge and inspire students at every level.',
     },
     {
       icon: Users,
-      title: "Small Class Sizes",
-      description: "Personalized attention with an average student-to-teacher ratio of 12:1.",
+      title: 'Small Class Sizes',
+      description:
+        'Personalized attention with an average student-to-teacher ratio of 12:1.',
     },
     {
       icon: Award,
-      title: "Award-Winning Programs",
-      description: "Recognized for excellence in STEM, arts, and athletics programs.",
+      title: 'Award-Winning Programs',
+      description:
+        'Recognized for excellence in STEM, arts, and athletics programs.',
     },
     {
       icon: Calendar,
-      title: "Extracurricular Activities",
-      description: "Over 50 clubs and activities to help students explore their passions.",
+      title: 'Extracurricular Activities',
+      description:
+        'Over 50 clubs and activities to help students explore their passions.',
     },
   ]
 
   const stats = [
-    { number: "98%", label: "College Acceptance Rate" },
-    { number: "850+", label: "Students Enrolled" },
-    { number: "75+", label: "Dedicated Faculty" },
-    { number: "25", label: "Years of Excellence" },
+    { number: '98%', label: 'College Acceptance Rate' },
+    { number: '850+', label: 'Students Enrolled' },
+    { number: '75+', label: 'Dedicated Faculty' },
+    { number: '25', label: 'Years of Excellence' },
   ]
 
   return (
@@ -55,7 +59,12 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+              />
             ))}
           </div>
         </div>
