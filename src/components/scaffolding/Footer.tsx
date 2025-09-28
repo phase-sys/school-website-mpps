@@ -22,6 +22,7 @@ export function Footer() {
                   fill
                   style={{ objectFit: 'contain' }}
                   priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <span className="font-bold text-xl text-foreground">

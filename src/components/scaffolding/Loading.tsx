@@ -1,5 +1,3 @@
-'use client'
-
 import Image from 'next/image'
 
 export default function Loading() {
@@ -12,6 +10,7 @@ export default function Loading() {
           fill
           priority
           style={{ objectFit: 'contain' }}
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
     </div>
