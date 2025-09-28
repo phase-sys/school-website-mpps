@@ -1,6 +1,5 @@
 import { Navigation } from '@/components/scaffolding/Navigation'
 import { Footer } from '@/components/scaffolding/Footer'
-import { Button } from '@/components/ui/button'
 import { Calendar } from 'lucide-react'
 import { HeroText } from '@/components/hero-text'
 import { ContactSection } from '@/sections/contact/ContactSection'

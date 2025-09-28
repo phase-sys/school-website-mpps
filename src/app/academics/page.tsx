@@ -1,16 +1,5 @@
 import { Navigation } from '@/components/scaffolding/Navigation'
 import { Footer } from '@/components/scaffolding/Footer'
-import { Card, CardContent } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import {
-  BookOpen,
-  Microscope,
-  Palette,
-  Globe,
-  Calculator,
-  Music,
-} from 'lucide-react'
-import Link from 'next/link'
 import { HeroText } from '@/components/hero-text'
 import { GradeLevelsOverviewSection } from '@/sections/academics/GradeLevelsOverviewSection'
 import { CoreAcademicAreasSection } from '@/sections/academics/CoreAcademicsAreaSection'
