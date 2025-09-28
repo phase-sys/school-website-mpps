@@ -27,7 +27,7 @@ function DepartmentCard({
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
               <Users className="h-6 w-6 text-primary" />
             </div>
-            <div>
+            <div className="flex flex-col">
               <h4 className="font-medium text-foreground">{head}</h4>
               <p className="text-sm text-primary">{role}</p>
               <p className="text-xs text-muted-foreground">{bio}</p>
@@ -79,12 +79,16 @@ export function DepartmentHighlightsSection() {
   ]
 
   return (
-    <SectionWrapper width="7xl" bg="muted" className="text-center">
-      <SectionHeader
-        title="Department Highlights"
-        subtitle="Meet some of our outstanding department leaders and teachers"
-      />
+    <SectionWrapper width="7xl" bg="muted">
+      {/* Header stays centered */}
+      <div className="text-center mb-12">
+        <SectionHeader
+          title="Department Highlights"
+          subtitle="Meet some of our outstanding department leaders and teachers"
+        />
+      </div>
 
+      {/* Cards stay left-aligned */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {departments.map((dept) => (
           <DepartmentCard key={dept.title} {...dept} />

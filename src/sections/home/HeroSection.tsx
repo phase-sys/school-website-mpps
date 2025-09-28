@@ -10,7 +10,7 @@ const slides: CarouselSlide[] = [
     ctaLink: '/admissions',
     secondaryCtaText: 'Schedule Visit',
     secondaryCtaLink: '/contact',
-    backgroundImage: '/modern-school-campus-students.jpg',
+    backgroundImage: '/hero-carousel/modern-school-campus-students.jpg',
   },
   {
     id: 2,
@@ -21,7 +21,8 @@ const slides: CarouselSlide[] = [
     ctaLink: '/academics',
     secondaryCtaText: 'View Programs',
     secondaryCtaLink: '/academics',
-    backgroundImage: '/students-in-science-laboratory-conducting-experime.jpg',
+    backgroundImage:
+      '/hero-carousel/students-in-science-laboratory-conducting-experime.jpg',
   },
   {
     id: 3,
@@ -32,18 +33,8 @@ const slides: CarouselSlide[] = [
     ctaLink: '/academics',
     secondaryCtaText: 'View Gallery',
     secondaryCtaLink: '/about',
-    backgroundImage: '/students-performing-arts-music-theater-creative.jpg',
-  },
-  {
-    id: 4,
-    title: 'Athletics & Wellness',
-    subtitle:
-      'Championship sports programs and comprehensive wellness education promoting healthy, active lifestyles.',
-    ctaText: 'Join Teams',
-    ctaLink: '/admissions',
-    secondaryCtaText: 'View Sports',
-    secondaryCtaLink: '/academics',
-    backgroundImage: '/school-sports-teams-athletics-students-playing.jpg',
+    backgroundImage:
+      '/hero-carousel/students-performing-arts-music-theater-creative.jpg',
   },
 ]
 

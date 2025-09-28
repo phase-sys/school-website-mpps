@@ -14,7 +14,7 @@ interface Milestone {
 
 function MilestoneItem({ year, icon, title, description }: Milestone) {
   return (
-    <div className="relative flex flex-col md:flex-row gap-8 items-start">
+    <div className="relative flex flex-col sm:flex-row gap-8 items-start">
       {/* Year badge */}
       <div className="flex-shrink-0 relative z-10">
         <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center">
