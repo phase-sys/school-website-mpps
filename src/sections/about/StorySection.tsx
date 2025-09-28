@@ -2,7 +2,7 @@ import { SectionWrapper } from '@/components/scaffolding/SectionWrapper'
 import { SectionHeader } from '@/components/section-header'
 
 const storyParagraphs = [
-  `Excellence Academy was founded in 1999 with a simple yet powerful vision: to create an educational environment where every student could thrive academically, socially, and emotionally. What started as a small school with 50 students has grown into a vibrant community of over 850 learners from kindergarten through 12th grade.`,
+  `MPPS Inc was founded in 1999 with a simple yet powerful vision: to create an educational environment where every student could thrive academically, socially, and emotionally. What started as a small school with 50 students has grown into a vibrant community of over 850 learners from kindergarten through 12th grade.`,
 
   `Our founders, Dr. Sarah Mitchell and Dr. James Rodriguez, were passionate educators who believed that small class sizes, innovative teaching methods, and a strong sense of community were the keys to unlocking every child’s potential. Today, their vision continues to guide our approach to education.`,
 

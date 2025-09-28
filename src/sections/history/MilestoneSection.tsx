@@ -53,7 +53,7 @@ export function MilestonesSection() {
       icon: <Building className="h-6 w-6" />,
       title: 'Foundation & First Campus',
       description:
-        'Excellence Academy was founded by Dr. Sarah Mitchell and Dr. James Rodriguez with just 50 students in grades K-6. Our first campus was a modest building with 8 classrooms, but our vision was anything but small.',
+        'MPPS Inc was founded by Dr. Sarah Mitchell and Dr. James Rodriguez with just 50 students in grades K-6. Our first campus was a modest building with 8 classrooms, but our vision was anything but small.',
     },
     {
       year: '2003',

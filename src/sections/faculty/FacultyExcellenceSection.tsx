@@ -1,5 +1,6 @@
 // sections/faculty-excellence-section.tsx
 import { SectionWrapper } from '@/components/scaffolding/SectionWrapper'
+import { SectionHeader } from '@/components/section-header'
 import { Card, CardContent } from '@/components/ui/card'
 
 export function FacultyExcellenceSection() {
@@ -11,7 +12,7 @@ export function FacultyExcellenceSection() {
   ]
 
   const professionalDevelopment = [
-    'Annual professional development budget of $150,000',
+    'Annual professional development budget of ₱3,000',
     'Conference attendance and workshop participation',
     'Collaborative planning and peer observation',
     'Technology integration and innovative teaching methods',
@@ -30,14 +31,10 @@ export function FacultyExcellenceSection() {
 
   return (
     <SectionWrapper width="4xl" bg="background">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Faculty Excellence
-        </h2>
-        <p className="text-lg text-muted-foreground">
-          Our commitment to hiring and retaining exceptional educators
-        </p>
-      </div>
+      <SectionHeader
+        title="Faculty Excellence"
+        subtitle="Our commitment to hiring and retaining exceptional educators"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <Card>

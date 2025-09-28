@@ -15,7 +15,7 @@ export default function HomePage() {
       <StatsSection />
       <CTASection
         title="Ready to Join Our Community?"
-        subtitle="Discover how Excellence Academy can help your child reach their full potential."
+        subtitle="Discover how MPPS Inc can help your child reach their full potential."
         primaryButtonText="Start Application"
         primaryButtonHref="/admissions"
         secondaryButtonText="Schedule Visit"
