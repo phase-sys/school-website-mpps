@@ -1,13 +1,16 @@
 'use client'
 
+import clsx from 'clsx'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <nav className="bg-background border-b border-border sticky top-0 z-50">
@@ -35,8 +38,16 @@ export function Navigation() {
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-10 text-lg">
+              {/* About dropdown */}
               <div className="relative group">
-                <button className="text-muted-foreground hover:text-primary transition-colors flex items-center space-x-1 group">
+                <button
+                  className={clsx(
+                    'hover:text-primary transition-colors flex items-center space-x-1 group',
+                    ['/about', '/history', '/faculty'].includes(pathname)
+                      ? 'text-primary font-semibold'
+                      : 'text-muted-foreground'
+                  )}
+                >
                   <span>About</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
@@ -46,19 +57,34 @@ export function Navigation() {
                     <div className="py-1">
                       <Link
                         href="/about"
-                        className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+                        className={clsx(
+                          'block px-4 py-2 text-sm hover:text-primary hover:bg-muted transition-colors',
+                          pathname === '/about'
+                            ? 'text-primary font-semibold'
+                            : 'text-muted-foreground'
+                        )}
                       >
                         About Us
                       </Link>
                       <Link
                         href="/history"
-                        className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+                        className={clsx(
+                          'block px-4 py-2 text-sm hover:text-primary hover:bg-muted transition-colors',
+                          pathname === '/history'
+                            ? 'text-primary font-semibold'
+                            : 'text-muted-foreground'
+                        )}
                       >
                         History
                       </Link>
                       <Link
                         href="/faculty"
-                        className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+                        className={clsx(
+                          'block px-4 py-2 text-sm hover:text-primary hover:bg-muted transition-colors',
+                          pathname === '/faculty'
+                            ? 'text-primary font-semibold'
+                            : 'text-muted-foreground'
+                        )}
                       >
                         Faculty & Staff
                       </Link>
@@ -69,19 +95,34 @@ export function Navigation() {
 
               <Link
                 href="/academics"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={clsx(
+                  'hover:text-primary transition-colors',
+                  pathname === '/academics'
+                    ? 'text-primary font-semibold'
+                    : 'text-muted-foreground'
+                )}
               >
                 Academics
               </Link>
               <Link
                 href="/admissions"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={clsx(
+                  'hover:text-primary transition-colors',
+                  pathname === '/admissions'
+                    ? 'text-primary font-semibold'
+                    : 'text-muted-foreground'
+                )}
               >
                 Admissions
               </Link>
               <Link
                 href="/contact"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={clsx(
+                  'hover:text-primary transition-colors',
+                  pathname === '/contact'
+                    ? 'text-primary font-semibold'
+                    : 'text-muted-foreground'
+                )}
               >
                 Contact
               </Link>
@@ -108,32 +149,40 @@ export function Navigation() {
         {isOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-border">
-              <Link
-                href="/"
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-              >
-                Home
-              </Link>
-
               <div className="space-y-1">
                 <div className="px-3 py-2 text-muted-foreground font-medium text-sm">
                   About
                 </div>
                 <Link
                   href="/about"
-                  className="block px-6 py-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className={clsx(
+                    'block px-6 py-2 text-sm hover:text-primary transition-colors',
+                    pathname === '/about'
+                      ? 'text-primary font-semibold'
+                      : 'text-muted-foreground'
+                  )}
                 >
                   About Us
                 </Link>
                 <Link
                   href="/history"
-                  className="block px-6 py-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className={clsx(
+                    'block px-6 py-2 text-sm hover:text-primary transition-colors',
+                    pathname === '/history'
+                      ? 'text-primary font-semibold'
+                      : 'text-muted-foreground'
+                  )}
                 >
                   History
                 </Link>
                 <Link
                   href="/faculty"
-                  className="block px-6 py-2 text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className={clsx(
+                    'block px-6 py-2 text-sm hover:text-primary transition-colors',
+                    pathname === '/faculty'
+                      ? 'text-primary font-semibold'
+                      : 'text-muted-foreground'
+                  )}
                 >
                   Faculty & Staff
                 </Link>
@@ -141,19 +190,34 @@ export function Navigation() {
 
               <Link
                 href="/academics"
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
+                className={clsx(
+                  'block px-3 py-2 hover:text-primary transition-colors',
+                  pathname === '/academics'
+                    ? 'text-primary font-semibold'
+                    : 'text-muted-foreground'
+                )}
               >
                 Academics
               </Link>
               <Link
                 href="/admissions"
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
+                className={clsx(
+                  'block px-3 py-2 hover:text-primary transition-colors',
+                  pathname === '/admissions'
+                    ? 'text-primary font-semibold'
+                    : 'text-muted-foreground'
+                )}
               >
                 Admissions
               </Link>
               <Link
                 href="/contact"
-                className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors"
+                className={clsx(
+                  'block px-3 py-2 hover:text-primary transition-colors',
+                  pathname === '/contact'
+                    ? 'text-primary font-semibold'
+                    : 'text-muted-foreground'
+                )}
               >
                 Contact
               </Link>
