@@ -61,13 +61,13 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
               <div className="p-8 md:p-12">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-md">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl px-8 font-bold mb-6 drop-shadow-md">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto drop-shadow-sm">
+                <p className="text-xl md:text-2xl px-8 mb-8 max-w-3xl mx-auto drop-shadow-sm">
                   {slide.subtitle}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col px-8 sm:flex-row gap-4 justify-center">
                   <Button
                     size="lg"
                     className="bg-primary hover:bg-primary/90 text-white px-10 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
