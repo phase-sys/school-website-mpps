@@ -12,10 +12,10 @@ export function Navigation() {
   return (
     <nav className="bg-background border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-18">
+        <div className="flex justify-between items-center h-18 lg:h-24">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-4">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden flex items-center justify-center">
+              <div className="relative w-12 h-12 lg:w-16 lg:h-16 rounded-full overflow-hidden flex items-center justify-center">
                 <Image
                   src="/logo.png"
                   alt="MPPS Logo"
@@ -25,12 +25,15 @@ export function Navigation() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <span className="font-bold text-3xl text-foreground">MPPS</span>
+              <span className="font-black text-md lg:text-lg text-foreground">
+                Mother Perpetua <br />
+                Parochial School Inc.
+              </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-10 text-lg">
               <div className="relative group">
                 <button className="text-muted-foreground hover:text-primary transition-colors flex items-center space-x-1 group">
@@ -86,7 +89,7 @@ export function Navigation() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="sm"
@@ -103,7 +106,7 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-border">
               <Link
                 href="/"
