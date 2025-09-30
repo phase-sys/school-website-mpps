@@ -3,12 +3,8 @@
 import Link from 'next/link'
 import { MapPin, Phone, Mail } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
-import { Skeleton } from '../ui/skeleton'
 
 export function Footer() {
-  const [loaded, setLoaded] = useState(false)
-
   return (
     <footer className="bg-muted border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -113,9 +109,6 @@ export function Footer() {
 
         {/* Full-width Google Map */}
         <div className="mt-8 w-full h-36 md:h-48 rounded-lg overflow-hidden relative">
-          {!loaded && (
-            <Skeleton className="absolute inset-0 w-full h-full rounded-lg" />
-          )}
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d902.8011027135041!2d121.73046123236418!3d14.19077657247068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339800a5c6925043%3A0xcbaa6aa0c77118cd!2sMother%20Perpetua%20Parochial%20School!5e1!3m2!1sen!2sph!4v1758732396437!5m2!1sen!2sph"
             width="100%"
@@ -124,8 +117,7 @@ export function Footer() {
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            onLoad={() => setLoaded(true)}
-          ></iframe>
+          />
         </div>
 
         <div className="mt-4 pt-4 text-center">
