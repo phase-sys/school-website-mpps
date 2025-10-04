@@ -39,10 +39,7 @@ export const submitContact = async (
     })
 
     // Insert into DB
-    // await db.insert(contacts).values(validatedData)
-
-    const result = await db.insert(contacts).values(validatedData)
-    console.log('DB insert result:', result)
+    await db.insert(contacts).values(validatedData)
 
     return { status: 'success' }
   } catch (error) {

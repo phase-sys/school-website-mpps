@@ -78,7 +78,7 @@ export function ContactSection() {
     } else if (state.status === 'failed') {
       toast.error('Something went wrong. Please try again later.')
     }
-  }, [state.status])
+  }, [state.status, state.messages])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
