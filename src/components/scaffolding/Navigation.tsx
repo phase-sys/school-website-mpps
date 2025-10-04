@@ -17,7 +17,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-18 lg:h-24">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-4">
+            <Link href="/" className="flex items-center space-x-2 lg:space-x-4">
               <div className="relative w-12 h-12 lg:w-16 lg:h-16 rounded-full overflow-hidden flex items-center justify-center">
                 <Image
                   src="/logo.png"
@@ -28,7 +28,7 @@ export function Navigation() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <span className="font-black text-md lg:text-lg text-foreground">
+              <span className="font-black text-md lg:text-lg text-foreground leading-none">
                 Mother Perpetua <br />
                 Parochial School Inc.
               </span>
