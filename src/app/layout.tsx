@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Suspense } from 'react'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from 'sonner'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -37,6 +38,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <Suspense fallback={null}>{children}</Suspense>
+        <Toaster position="top-right" />
+
         <Analytics />
       </body>
     </html>

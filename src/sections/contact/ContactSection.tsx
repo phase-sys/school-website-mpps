@@ -1,5 +1,6 @@
 'use client'
 
+import { startTransition, useActionState, useEffect, useRef } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import { SectionWrapper } from '@/components/scaffolding/SectionWrapper'
 import { SectionHeader } from '@/components/section-header'
@@ -8,7 +9,8 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { useState } from 'react'
+import { submitContact, type ContactActionState } from '@/app/contact/actions'
+import { toast } from 'sonner'
 
 const contactItems = [
   {
@@ -59,35 +61,30 @@ const contactItems = [
 ]
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  })
+  const [state, formAction] = useActionState<ContactActionState, FormData>(
+    submitContact,
+    { status: 'idle', messages: [] }
+  )
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const formRef = useRef<HTMLFormElement>(null)
+
+  useEffect(() => {
+    if (state.status === 'success') {
+      toast.success("Message sent successfully! We'll get back to you soon.")
+      // Reset the form
+      formRef.current?.reset()
+    } else if (state.status === 'invalid_data') {
+      toast.warning('Please check your inputs and try again.')
+    } else if (state.status === 'failed') {
+      toast.error('Something went wrong. Please try again later.')
+    }
+  }, [state.status])
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    })
-    alert("Thank you for your message! We'll get back to you soon.")
-  }
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    const formData = new FormData(e.currentTarget)
+    startTransition(() => {
+      formAction(formData)
     })
   }
 
@@ -103,7 +100,7 @@ export function ContactSection() {
 
           <Card>
             <CardContent className="pt-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="name">Full Name *</Label>
@@ -112,8 +109,6 @@ export function ContactSection() {
                       name="name"
                       type="text"
                       required
-                      value={formData.name}
-                      onChange={handleChange}
                       className="mt-1"
                     />
                   </div>
@@ -124,8 +119,6 @@ export function ContactSection() {
                       name="email"
                       type="email"
                       required
-                      value={formData.email}
-                      onChange={handleChange}
                       className="mt-1"
                     />
                   </div>
@@ -133,14 +126,7 @@ export function ContactSection() {
 
                 <div>
                   <Label htmlFor="phone">Phone Number</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="mt-1"
-                  />
+                  <Input id="phone" name="phone" type="tel" className="mt-1" />
                 </div>
 
                 <div>
@@ -150,8 +136,6 @@ export function ContactSection() {
                     name="subject"
                     type="text"
                     required
-                    value={formData.subject}
-                    onChange={handleChange}
                     className="mt-1"
                     placeholder="e.g., Admissions Inquiry, Campus Visit, General Question"
                   />
@@ -163,18 +147,29 @@ export function ContactSection() {
                     id="message"
                     name="message"
                     required
-                    value={formData.message}
-                    onChange={handleChange}
                     className="mt-1"
                     rows={5}
                     placeholder="Please tell us how we can help you..."
                   />
                 </div>
 
-                <Button type="submit" className="w-full cursor-pointer">
-                  Send Message
+                <Button
+                  type="submit"
+                  className="w-full cursor-pointer"
+                  disabled={state.status === 'in_progress'}
+                >
+                  {state.status === 'in_progress'
+                    ? 'Sending...'
+                    : 'Send Message'}
                 </Button>
               </form>
+              {state.status === 'invalid_data' && state.messages && (
+                <ul className="mt-2 text-destructive">
+                  {state.messages.map((msg, i) => (
+                    <li key={i}>• {msg}</li>
+                  ))}
+                </ul>
+              )}
             </CardContent>
           </Card>
         </div>
